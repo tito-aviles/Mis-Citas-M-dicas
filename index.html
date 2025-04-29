@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestiona tus Consultas Médicas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Mis citas Médicas</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#citas">Citas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#medicacion">Medicación</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#documentos">Documentos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#medicos">Médicos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#familia">Compartir</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h1 class="text-center">Gestión de Consultas Médicas</h1>
+        <p class="text-center">Organiza y gestiona tus citas médicas de manera sencilla y rápida.</p>
+        <div id="fechaHoraActual" class="alert alert-info text-center" role="alert">
+            <strong>Hoy es día</strong> <span id="fechaHora"></span>
+        </div>
+    </div>
+
+    <div class="container mt-4">
+        <h2 class="section-title" id="citas">🗓️ Citas Médicas</h2>
+        <p>Aquí puedes ver y añadir tus próximas consultas médicas.</p>
+        <form class="mb-4">
+            <div class="mb-3">
+                <label for="fechaCita" class="form-label">Fecha y hora</label>
+                <input type="datetime-local" class="form-control" id="fechaCita" name="fechaCita">
+            </div>
+            <div class="mb-3">
+                <label for="especialista" class="form-label">Especialista</label>
+                <input type="text" class="form-control" id="especialista" name="especialista">
+            </div>
+            <div class="mb-3">
+                <label for="motivo" class="form-label">Motivo de la cita</label>
+                <textarea class="form-control" id="motivo" name="motivo" rows="2"></textarea>
+            </div>
+        </form>
+    
+        <h2 class="section-title" id="medicacion">💊 Medicación</h2>
+        <p>Registra tus tratamientos actuales y horarios de medicación.</p>
+        <form class="mb-4">
+            <div class="mb-3">
+                <label for="medicamento" class="form-label">Nombre del medicamento</label>
+                <input type="text" class="form-control" id="medicamento" name="medicamento">
+            </div>
+            <div class="mb-3">
+                <label for="dosis" class="form-label">Dosis</label>
+                <input type="text" class="form-control" id="dosis" name="dosis">
+            </div>
+            <div class="mb-3">
+                <label for="frecuencia" class="form-label">Frecuencia (horas/días)</label>
+                <input type="text" class="form-control" id="frecuencia" name="frecuencia">
+            </div>
+        </form>
+
+    <h2 class="section-title" id="documentos">📄 Documentos Médicos</h2>
+    <p>Selecciona el tipo de documento que deseas gestionar y asigna una fecha y hora.</p>
+    <form class="mb-4">
+        <div class="mb-3">
+            <label for="tipoDocumento" class="form-label">Tipo de documento</label>
+            <select class="form-select" id="tipoDocumento" name="tipoDocumento">
+                <option value="" selected disabled>Selecciona una opción</option>
+                <option value="nuevaCita">Nueva cita</option>
+                <option value="citaEspecialista">Cita con especialista</option>
+                <option value="bajaMedica">Baja médica</option>
+                <option value="analitica">Analítica</option>
+                <option value="resultados">Resultados</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="fechaDocumento" class="form-label">Fecha y hora</label>
+            <input type="datetime-local" class="form-control" id="fechaDocumento" name="fechaDocumento">
+        </div>
+    </form>
+
+    <h2 class="section-title" id="medicos">🧑‍⚕️ Médicos</h2>
+    <p>Guarda la información de contacto de tus médicos de confianza.</p>
+    <form class="mb-4">
+        <div class="mb-3">
+            <label for="nombreMedico" class="form-label">Nombre del médico</label>
+            <input type="text" class="form-control" id="nombreMedico" name="nombreMedico" placeholder="Dr. Juan Pérez">
+        </div>
+        <div class="mb-3">
+            <label for="especialidadMedico" class="form-label">Especialidad</label>
+            <input type="text" class="form-control" id="especialidadMedico" name="especialidadMedico" placeholder="Cardiología, Pediatría, etc.">
+        </div>
+        <div class="mb-3">
+            <label for="contactoMedico" class="form-label">Contacto</label>
+            <input type="text" class="form-control" id="contactoMedico" name="contactoMedico" placeholder="Teléfono o correo electrónico">
+        </div>
+    </form>
+
+    <h2 class="section-title" id="notas">📝 Notas de Salud</h2>
+    <p>Escribe notas importantes sobre síntomas, recomendaciones o dudas para tus citas.</p>
+    <form class="mb-4">
+        <div class="mb-3">
+            <label for="nota" class="form-label">Escribe tu nota</label>
+            <textarea class="form-control" id="nota" name="nota" rows="4" placeholder="Escribe aquí tus notas..."></textarea>
+        </div>
+    </form>
+
+    <h2 class="section-title" id="familia">👨‍👩‍👧 Compartir con Familiares</h2>
+    <p>Opción para que tus familiares o médicos de confianza puedan acceder a tu información si lo autorizas.</p>
+        <div class="mb-4">
+        <p>Comparte esta información usando:</p>
+        <a id="compartirWhatsApp" href="#" target="_blank" class="btn btn-success mb-2">
+            Compartir por WhatsApp
+        </a>
+        </div>
+    </div>
+
+    <footer>
+        © 2025 Mis citas Médicas | Gerardo López
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
